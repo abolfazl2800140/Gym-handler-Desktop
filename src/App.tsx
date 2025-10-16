@@ -316,15 +316,15 @@ function App() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Toaster />
       <ChatWidget />
-      {/* Header */}
-      <header className="glass sticky top-0 z-40 border-b border-gray-200 dark:border-gray-700 backdrop-blur-md">
+      {/* Modern Header */}
+      <header className="glass sticky top-0 z-40 border-b border-white/20 dark:border-gray-700/50 backdrop-blur-xl">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between py-4">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gray-900 rounded-md flex items-center justify-center shadow-sm">
+          <div className="flex items-center justify-between py-6">
+            {/* Enhanced Logo */}
+            <div className="flex items-center gap-4">
+              <div className="relative w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg hover-lift">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="w-7 h-7 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -332,14 +332,18 @@ function App() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
+                    strokeWidth={2.5}
                     d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-900"></div>
               </div>
-              <h1 className="text-heading-2 text-gray-900 dark:text-gray-100">
-                مدیریت باشگاه
-              </h1>
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                  مدیریت باشگاه
+                </h1>
+                <p className="text-sm text-gray-600 dark:text-gray-400">نسخه 2.0 - سیستم مدیریت پیشرفته</p>
+              </div>
             </div>
 
             {/* Desktop Navigation */}
@@ -392,47 +396,58 @@ function App() {
               ))}
             </nav>
 
-            {/* Theme Toggle */}
-            <button
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="touch-target p-2 bg-white/50 dark:bg-gray-700/50 hover:bg-white/70 dark:hover:bg-gray-600/70 transition-all duration-300 backdrop-blur-sm"
-            >
-              {theme === "light" ? (
-                <svg
-                  className="w-5 h-5 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="w-5 h-5 text-yellow-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
-              )}
-            </button>
+            {/* Enhanced Theme Toggle */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="relative p-3 rounded-xl bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover-lift hover-glow"
+                title={`تغییر به حالت ${theme === "light" ? "تاریک" : "روشن"}`}
+              >
+                <div className="relative w-6 h-6">
+                  {theme === "light" ? (
+                    <svg
+                      className="w-6 h-6 text-gray-700 dark:text-gray-300 transition-all duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="w-6 h-6 text-yellow-500 transition-all duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                  )}
+                </div>
+              </button>
+              
+              {/* Status Indicator */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-xs font-medium text-green-700 dark:text-green-300">آنلاین</span>
+              </div>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Navigation */}
-      <nav className="mobile-nav flex justify-around items-center border-t border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-black/30 backdrop-blur-md">
+      {/* Enhanced Mobile Navigation */}
+      <nav className="mobile-nav flex justify-around items-center border-t border-white/20 dark:border-gray-700/50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-lg">
         {[
           {
             key: "members",
@@ -468,16 +483,25 @@ function App() {
           <button
             key={tabItem.key}
             onClick={() => setTab(tabItem.key as any)}
-            className={`touch-target flex flex-col items-center gap-1 px-3 py-2 rounded-md transition-colors duration-200 ${
+            className={`touch-target flex flex-col items-center gap-1.5 px-4 py-3 rounded-xl transition-all duration-300 ease-out relative ${
               tab === tabItem.key
-                ? "text-gray-900 dark:text-white"
-                : "text-gray-600 dark:text-gray-400"
+                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 shadow-md transform scale-105"
+                : "text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300 hover:bg-gray-50 dark:hover:bg-gray-800/50"
             }`}
           >
-            {typeof tabItem.icon === "function"
-              ? tabItem.icon({ className: "w-5 h-5" })
-              : null}
-            <span className="text-xs">{tabItem.label}</span>
+            <div className={`transition-all duration-300 ${
+              tab === tabItem.key ? "transform scale-110" : ""
+            }`}>
+              {typeof tabItem.icon === "function"
+                ? tabItem.icon({ className: "w-5 h-5" })
+                : null}
+            </div>
+            <span className={`text-xs font-medium transition-all duration-300 ${
+              tab === tabItem.key ? "font-semibold" : ""
+            }`}>{tabItem.label}</span>
+            {tab === tabItem.key && (
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full"></div>
+            )}
           </button>
         ))}
       </nav>
@@ -496,24 +520,29 @@ function App() {
               style={{ willChange: "transform, opacity" }}
             >
             {showMembersList && (
-            <div className="flex items-center justify-between">
+            <motion.div 
+              className="flex items-center justify-between"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
                   مدیریت اعضا
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 mt-1">
-                  مدیریت جامع اطلاعات اعضای باشگاه
+                <p className="text-gray-600 dark:text-gray-400 mt-2 text-lg">
+                  مدیریت جامع و پیشرفته اطلاعات اعضای باشگاه
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <Button
                   onClick={() => setShowAddMemberModal(true)}
                   variant="primary"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 hover-lift hover-glow"
                   title="افزودن عضو جدید"
                 >
                   <svg
-                    className="h-4 w-4"
+                    className="h-5 w-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -521,12 +550,12 @@ function App() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={2.5}
                       d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                     />
                   </svg>
-                  <span className="hidden sm:inline">افزودن عضو جدید</span>
-                  <span className="sm:hidden">افزودن</span>
+                  <span className="hidden sm:inline font-semibold">افزودن عضو جدید</span>
+                  <span className="sm:hidden font-semibold">افزودن</span>
                 </Button>
                 <Button
                   onClick={() => {
@@ -1145,50 +1174,77 @@ function App() {
             </AnimatePresence>
 
             {viewMode === "card" && showMembersList && (
-              <div className="responsive-grid mt-4 sm:mt-6">
-                {filteredMembers.map((m) => (
+              <motion.div 
+                className="responsive-grid mt-6 sm:mt-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, staggerChildren: 0.1 }}
+              >
+                {filteredMembers.map((m, index) => (
                   <motion.div
                     key={m.id}
-                    className="group relative cursor-pointer rounded-2xl border border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-sm p-4 shadow-sm transition hover:shadow-md hover:border-white/20 transform-gpu"
+                    className="group relative cursor-pointer card card-elevated p-6 hover-lift hover-glow"
                     style={{ willChange: "transform", transformOrigin: "center" }}
-                    whileHover={{ y: -1, scale: 1.005 }}
-                    whileTap={{ scale: 0.997 }}
-                    transition={{ type: "tween", duration: anim.durations.sm, ease: anim.ease }}
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ 
+                      type: "spring", 
+                      duration: 0.5, 
+                      delay: index * 0.1,
+                      stiffness: 100,
+                      damping: 15
+                    }}
+                    whileHover={{ 
+                      y: -8, 
+                      scale: 1.02,
+                      transition: { duration: 0.2 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={() => setSelectedMemberId(m.id)}
                   >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div
-                        className="h-12 w-12 rounded-full flex items-center justify-center font-bold text-white shadow-sm"
-                        style={{
-                          backgroundColor: colorFromSeed(m.id || m.name || ""),
-                        }}
-                      >
-                        {m.name?.[0] || "ع"}
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="relative">
+                        <div
+                          className="h-16 w-16 rounded-2xl flex items-center justify-center font-bold text-white shadow-lg hover-lift"
+                          style={{
+                            background: `linear-gradient(135deg, ${colorFromSeed(m.id || m.name || "")} 0%, ${colorFromSeed(m.id || m.name || "")}dd 100%)`,
+                          }}
+                        >
+                          <span className="text-xl">{m.name?.[0] || "ع"}</span>
+                        </div>
+                        <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-white dark:border-gray-900 ${
+                          m.status === 'active' ? 'bg-green-500' : 'bg-gray-400'
+                        }`}></div>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-responsive-base font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
+                        <div className="text-xl font-bold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
                           {m.name}
                         </div>
-                        <div className="text-responsive-sm text-gray-500 dark:text-gray-400 truncate">
-                          {m.phone || "---"}
+                        <div className="text-sm text-gray-500 dark:text-gray-400 truncate flex items-center gap-2">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          {m.phone || "شماره تماس ثبت نشده"}
                         </div>
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-2 text-xs mb-3">
-                      <span className="badge">
-                        نقش:{" "}
-                        {roleOptions.find((r) => r.value === m.role)?.label ||
-                          "عضو"}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className={`badge ${
+                        m.role === 'admin' ? 'badge-error' : 
+                        m.role === 'coach' ? 'badge-warning' : 'badge-primary'
+                      }`}>
+                        {roleOptions.find((r) => r.value === m.role)?.label || "عضو"}
                       </span>
-                      <span className="badge">
-                        وضعیت:{" "}
-                        {statusOptions.find((s) => s.value === m.status)
-                          ?.label || "فعال"}
+                      <span className={`badge ${
+                        m.status === 'active' ? 'badge-success' : 'badge-error'
+                      }`}>
+                        {statusOptions.find((s) => s.value === m.status)?.label || "فعال"}
                       </span>
-                      <span className="badge">
-                        سطح:{" "}
-                        {levelOptions.find((l) => l.value === m.level)?.label ||
-                          "عادی"}
+                      <span className={`badge ${
+                        m.level === 'gold' ? 'badge-warning' : 
+                        m.level === 'silver' ? 'badge-primary' : 'badge'
+                      }`}>
+                        {levelOptions.find((l) => l.value === m.level)?.label || "عادی"}
                       </span>
                     </div>
                     <div className="text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 pt-3">
@@ -1200,10 +1256,15 @@ function App() {
             )}
 
             {filteredMembers.length === 0 && showMembersList && (
-              <div className="text-center py-12 fade-in">
-                <div className="mx-auto w-24 h-24 bg-gray-300 dark:bg-gray-700 rounded-full flex items-center justify-center mb-4">
+              <motion.div 
+                className="text-center py-16 fade-in"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <div className="mx-auto w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
                   <svg
-                    className="w-12 h-12 text-gray-500 dark:text-gray-400"
+                    className="w-16 h-16 text-blue-500 dark:text-blue-400"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1211,18 +1272,28 @@ function App() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
+                      strokeWidth={1.5}
                       d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
-                  موردی یافت نشد
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-3">
+                  هیچ عضوی یافت نشد
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  عضو جدید اضافه کنید یا فیلترها را تنظیم نمایید
+                <p className="text-gray-500 dark:text-gray-400 text-lg mb-6">
+                  عضو جدید اضافه کنید یا فیلترهای جستجو را تنظیم نمایید
                 </p>
-              </div>
+                <Button
+                  onClick={() => setShowAddMemberModal(true)}
+                  variant="primary"
+                  className="inline-flex items-center gap-2 hover-lift"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                  افزودن اولین عضو
+                </Button>
+              </motion.div>
             )}
 
             <div
